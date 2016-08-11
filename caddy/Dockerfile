@@ -15,7 +15,6 @@ ADD root /
 WORKDIR /site
 VOLUME /site
 
-EXPOSE 2015
+EXPOSE 80 443 2015
 
-ENTRYPOINT ["/usr/bin/caddy"]
-CMD ["-conf", "/var/local/html/Caddyfile"]
+CMD ["caddy", "-conf", "/etc/Caddyfile"]
