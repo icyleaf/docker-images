@@ -15,4 +15,4 @@ fi
 
 NAME="$IMAGE_NAME-dev"
 echo "docker run -it --rm --name $NAME $IMAGE"
-# docker run -it --rm --name $NAME $IMAGE
+docker run -it --rm --name $NAME $IMAGE

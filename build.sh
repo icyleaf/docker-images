@@ -14,4 +14,4 @@ if [ ! -d $IMAGE_PATH ]; then
 fi
 
 echo "docker build $IMAGE_PATH -t icyleafcn/$IMAGE_PATH"
-docker build $IMAGE_PATH -t icyleafcn/$IMAGE_PATH
+docker build -t icyleafcn/$IMAGE_PATH $IMAGE_PATH
