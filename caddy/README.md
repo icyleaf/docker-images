@@ -2,6 +2,10 @@
 
 A [Docker](http://docker.com) image for [Caddy](http://caddyserver.com). This image includes the [git](http://caddyserver.com/docs/git) and [hugo](http://caddyserver.com/docs/hugo) addons.
 
+## Environment Variables
+
+- **CADDY_FEATURES** = `git hugo` (Add more hugo features, separate with __space__)
+
 ## Usage
 
 ```bash

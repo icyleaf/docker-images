@@ -4,6 +4,11 @@ Based on [alpine](https://hub.docker.com/_/alpine/):latest docker image, easy ch
 
 It will using mirror repo url powered by [tsinghua](https://mirrors.tuna.tsinghua.edu.cn) for SPEED FASTER for China.
 
+## Environment Variables
+
+- **ORIGINAL_REPO_URL** = `http://dl-cdn.alpinelinux.org` (default apk repositories url)
+- **MIRROR_REPO_URL** = `https://mirrors.tuna.tsinghua.edu.cn` (customize apk repositories url, default is `tsinghua` in china)
+
 ## Usage
 
 Use like you would any other base image:
