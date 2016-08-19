@@ -1,7 +1,7 @@
 FROM icyleafcn/alpine:latest
 MAINTAINER icyleaf <icyleaf.cn@gmail.com>
 
-ENV CADDY_FEATURES "git hugo"
+ENV CADDY_FEATURES "git"
 
 RUN apk --update --no-cache add curl openssh-client openssh-client git
 RUN FEATURES_LIST=$(echo $CADDY_FEATURES | sed 's/ /%2C/g') && \
