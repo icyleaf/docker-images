@@ -20,5 +20,3 @@ WORKDIR /site
 VOLUME /site
 
 EXPOSE 1313
-
-ENTRYPOINT ["hugo"]
