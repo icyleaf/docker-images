@@ -2,6 +2,7 @@
 
 
 IMAGE_PATH=$1
+OTHER_ARGS="${*:2}"
 
 if [ -z $IMAGE_PATH ]; then
   echo "Missing image path."
@@ -13,5 +14,6 @@ if [ ! -d $IMAGE_PATH ]; then
   exit 1
 fi
 
-echo "docker build $IMAGE_PATH -t icyleafcn/$IMAGE_PATH"
-docker build -t icyleafcn/$IMAGE_PATH $IMAGE_PATH
+echo "docker build $IMAGE_PATH -t icyleafcn/$IMAGE_PATH $OTHER_ARGS"
+docker build -t icyleafcn/$IMAGE_PATH $IMAGE_PATH $OTHER_ARGS
+
