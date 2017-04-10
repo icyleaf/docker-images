@@ -1,6 +1,6 @@
 # Alpine
 
-基于 [alpine](https://hub.docker.com/_/alpine/):3.5 官方镜像版本扩展，仅修改 apk 源和时区。
+基于 [alpine](https://hub.docker.com/_/alpine/):3.4 官方镜像版本扩展，仅修改 apk 源和时区。
 
 APK 的源目前采用的是 [清华大学开源软件镜像站](https://mirrors.tuna.tsinghua.edu.cn/alpine/) 作为国内地区的加速。
 

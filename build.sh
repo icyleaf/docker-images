@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-
 IMAGE_PATH=$1
 OTHER_ARGS="${*:2}"
 

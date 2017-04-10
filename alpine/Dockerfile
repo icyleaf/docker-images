@@ -1,4 +1,4 @@
-FROM alpine:3.5
+FROM alpine:3.4
 MAINTAINER icyleaf <icyleaf.cn@gmail.com>
 
 ENV ORIGINAL_REPO_URL="http://dl-cdn.alpinelinux.org" \

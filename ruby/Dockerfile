@@ -10,8 +10,10 @@ RUN mkdir -p /usr/local/etc \
 
 ENV RUBY_MAJOR 2.4
 ENV RUBY_VERSION 2.4.1
+ENV RUBY_DOWNLOAD_URL https://cache.ruby-china.org/pub/ruby
 ENV RUBY_DOWNLOAD_SHA256 4fc8a9992de3e90191de369270ea4b6c1b171b7941743614cc50822ddc1fe654
 ENV RUBYGEMS_VERSION 2.6.11
+ENV RUBYGEMS_SOURCE https://gems.ruby-china.org/
 ENV BUNDLER_VERSION 1.14.6
 
 # some of ruby's build scripts are written in ruby
@@ -46,7 +48,7 @@ RUN set -ex \
 		zlib-dev \
 		xz \
 	\
-	&& wget -O ruby.tar.xz "https://cache.ruby-lang.org/pub/ruby/${RUBY_MAJOR%-rc}/ruby-$RUBY_VERSION.tar.xz" \
+	&& wget -O ruby.tar.xz "${RUBY_DOWNLOAD_URL}/${RUBY_MAJOR%-rc}/ruby-$RUBY_VERSION.tar.xz" \
 	&& echo "$RUBY_DOWNLOAD_SHA256 *ruby.tar.xz" | sha256sum -c - \
 	\
 	&& mkdir -p /usr/src/ruby \
@@ -90,6 +92,7 @@ RUN set -ex \
 	&& cd / \
 	&& rm -r /usr/src/ruby \
 	\
+	&& gem sources --add $RUBYGEMS_SOURCE --remove https://rubygems.org/ \
 	&& gem update --system "$RUBYGEMS_VERSION"
 
 RUN gem install bundler --version "$BUNDLER_VERSION"
