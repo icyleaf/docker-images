@@ -13,6 +13,6 @@ if [ -z $(docker images | grep $IMAGE | awk '{print $1}') ]; then
   exit 1
 fi
 
-NAME="$IMAGE_NAME-dev"
+NAME="$IMAGE_NAME:dev"
 echo "docker run -it --rm --name $NAME $IMAGE"
 docker run -it --rm --name $NAME $IMAGE

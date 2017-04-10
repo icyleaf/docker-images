@@ -1,18 +1,19 @@
-# Caddy docker image
+# Caddy
 
-A [Docker](http://docker.com) image for [Caddy](http://caddyserver.com). This image includes the [git](http://caddyserver.com/docs/git) addon.
+基于 [icyleafcn/alpine](alpine/README.md):latest 镜像配置的 caddy 一个由 Go 语言编写的 web 服务容器。
 
-## Environment Variables
+## 变量
 
-- **CADDY_FEATURES** = `filemanager dnsimple` (Add more hugo features, separate with __space__)
+- icyleafcn/alpine [变量](alpine/README.md)
+- **CADDY_FEATURES** = `filemanager dnsimple` (添加更多插件支持，使用空格分隔)
 
-## Usage
+## 使用
 
 ```bash
 $ docker run -d -p 2015:2015 icyleafcn/caddy
 ```
 
-## Addons(Features)
+## 插件
 
 ```
 $ docker run -d -e CADDY_FEATURES="git hugo realip vultr" -p 80:80 -v /path/to/site:/site icyleafcn/caddy

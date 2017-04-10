@@ -1,14 +1,18 @@
-# Hugo docker image
+# Hugo
 
-Based on [alpine](https://hub.docker.com/_/alpine/):latest docker image for hugo static page generator.
+基于 [icyleafcn/alpine](alpine/README.md):latest 镜像配置的 hugo 一个由 Go 语言编写的静态化站点生成工具。
 
-## Environment Variables
+> hugo 安装采用 apk 库，无法保证和最新 github 最新发布保持一致。
 
-- **HUGO_HIGHLIGHT** = `yes/no` (optional to install Pygments for [highlight shortcode](http://gohugo.io/extras/highlighting/).)
+## 变量
 
-## Quick start
+- icyleafcn/alpine [变量](alpine/README.md)
+- **HUGO_VERSION** = `0.18`
+- **HUGO_HIGHLIGHT** = `yes/no` (是否需要设置[语法高亮](http://gohugo.io/extras/highlighting/)来安装依赖 Pygments for [highlight shortcode])
 
-### Create a new site
+## 快速使用
+
+### 创建一个新站
 
 ```bash
 # Create a new site
@@ -21,7 +25,7 @@ $ git clone https://github.com/vjeantet/hugo-theme-casper themes/casper
 $ docker run -d -p 1313:1313 --name hugo-blog -v /path/to/hugo:/site icyleafcn/hugo hugo server --watch --theme=casper --bind=0.0.0.0
 ```
 
-### Exist hugo site
+### 已存在项目的集成
 
 ```bash
 # Change to the path
@@ -33,19 +37,11 @@ $ docker run --rm -v /path/to/hugo:/site icyleafcn/hugo hugo new post/hello-worl
 $ docker run -d --name hugo-blog -v /path/to/hugo:/site icyleafcn/hugo hugo server --bind=0.0.0.0 --theme=casper --watch
 ```
 
-### Generate static
+### 生成静态化文件
 
 ```bash
 # Generate and output to /var/www/html path
 $ docker run --rm -v /path/to/hugo:/site icyleafcn/hugo hugo server -destination="/var/www/html"
-```
-
-### Make own image
-
-> TODO
-
-```bash
-$ docker build -t my/hugo .
 ```
 
 ## Support http servers
