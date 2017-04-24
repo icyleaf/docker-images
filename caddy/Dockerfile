@@ -1,12 +1,12 @@
 FROM icyleafcn/alpine:latest
 MAINTAINER icyleaf <icyleaf.cn@gmail.com>
 
-ARG CADDY_FEATURES="git"
+ARG CADDY_FEATURES="http.git"
 
-RUN apk --update --no-cache add curl openssh-client tar git
-RUN FEATURES_LIST=$(echo $CADDY_FEATURES | sed 's/ /%2C/g') && \
+RUN apk --update --no-cache add curl tar git
+RUN FEATURES_LIST=$(echo $CADDY_FEATURES | sed 's/ /,/g') && \
     curl --location --header "Accept: application/tar+gzip, application/x-gzip, application/octet-stream" -o - \
-      "https://caddyserver.com/download/build?os=linux&arch=amd64&features=${FEATURES_LIST}" \
+      "https://caddyserver.com/download/linux/amd64?plugins=${FEATURES_LIST}" \
       | tar -C /usr/bin/ -xz caddy && \
     /usr/bin/caddy -version
 
