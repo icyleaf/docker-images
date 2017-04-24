@@ -3,8 +3,10 @@ MAINTAINER icyleaf <icyleaf.cn@gmail.com>
 
 ARG CADDY_FEATURES="http.git"
 
-RUN apk --update --no-cache add curl tar git
-RUN FEATURES_LIST=$(echo $CADDY_FEATURES | sed 's/ /,/g') && \
+RUN set -ex \
+    \
+    && apk --update --no-cache add curl tar git && \
+    FEATURES_LIST=$(echo $CADDY_FEATURES | sed 's/ /,/g') && \
     curl --location --header "Accept: application/tar+gzip, application/x-gzip, application/octet-stream" -o - \
       "https://caddyserver.com/download/linux/amd64?plugins=${FEATURES_LIST}" \
       | tar -C /usr/bin/ -xz caddy && \
