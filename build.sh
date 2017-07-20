@@ -15,7 +15,7 @@ fi
 
 
 if [ $IMAGE_PATH = "alpine" ]; then
-  ALPINE_VERSIONS=(3.4 3.5)
+  ALPINE_VERSIONS=(3.4 3.5 3.6)
   LAST_VERSION=${ALPINE_VERSIONS[1]}
 
   for ver in ${ALPINE_VERSIONS[@]}; do
