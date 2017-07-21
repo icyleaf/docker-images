@@ -19,4 +19,5 @@ VOLUME /site
 
 EXPOSE 80 443 2015
 
-CMD ["caddy", "-conf", "/etc/Caddyfile"]
+ENTRYPOINT ["/usr/bin/caddy"]
+CMD ["--conf", "/etc/Caddyfile", "--log", "stdout"]
