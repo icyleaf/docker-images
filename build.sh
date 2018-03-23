@@ -13,7 +13,6 @@ if [ ! -d $IMAGE_PATH ]; then
   exit 1
 fi
 
-
 if [ $IMAGE_PATH = "alpine" ]; then
   ALPINE_VERSIONS=(3.4 3.5 3.6)
   LAST_VERSION=${ALPINE_VERSIONS[1]}

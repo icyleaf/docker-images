@@ -1,10 +1,9 @@
-FROM crystallang/crystal:latest
+FROM icyleafcn/alpine:latest
 
-ENV TZ=Asia/Shanghai
+ENV CRYSTAL_VERSION=0.24.2-r1
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get update -y && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -y tzdata && \
-    ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
-    rm -rf /var/lib/apt/lists/*
+RUN echo http://public.portalier.com/alpine/testing >> /etc/apk/repositories && \
+    wget http://public.portalier.com/alpine/julien%40portalier.com-56dab02e.rsa.pub -O /etc/apk/keys/julien@portalier.com-56dab02e.rsa.pub && \
+    apk add --update --no-cache crystal=${CRYSTAL_VERSION} shards
 
 CMD ["crystal", "--version"]
