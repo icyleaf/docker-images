@@ -1,5 +1,5 @@
 FROM icyleafcn/alpine:latest
-MAINTAINER icyleaf <icyleaf.cn@gmail.com>
+LABEL maintainer="icyleaf <icyleaf.cn@gmail.com>"
 
 ARG CADDY_FEATURES="http.git"
 
