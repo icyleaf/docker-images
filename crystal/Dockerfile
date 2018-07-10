@@ -1,4 +1,4 @@
-FROM icyleafcn/alpine:edge
+FROM icyleafcn/alpine:3.8
 LABEL maintainer="icyleaf <icyleaf.cn@gmail.com>"
 
 ENV CRYSTAL_VERSION=0.25.0-r0
