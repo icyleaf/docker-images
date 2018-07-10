@@ -14,18 +14,20 @@ if [ ! -d $IMAGE_PATH ]; then
 fi
 
 if [ $IMAGE_PATH = "alpine" ]; then
-  ALPINE_VERSIONS=(3.6 3.7 edge)
+  ALPINE_VERSIONS=`ls $IMAGE_PATH`
   LAST_VERSION=${ALPINE_VERSIONS[1]}
 
   for ver in ${ALPINE_VERSIONS[@]}; do
-    echo
-    echo "docker build $IMAGE_PATH:$ver -t icyleafcn/$IMAGE_PATH $OTHER_ARGS"
-    echo
+    if [ "$ver" != "README.md"]; then
+      echo
+      echo "docker build $IMAGE_PATH:$ver -t icyleafcn/$IMAGE_PATH $OTHER_ARGS"
+      echo
 
-    docker build -t icyleafcn/$IMAGE_PATH:$ver "$IMAGE_PATH/$ver" $OTHER_ARG
-    if [ "$ver" = "$LAST_VERSION" ]; then
-      echo "docker tag icyleafcn/$IMAGE_PATH:$ver icyleafcn/$IMAGE_PATH"
-      docker tag icyleafcn/$IMAGE_PATH:$ver icyleafcn/$IMAGE_PATH
+      docker build -t icyleafcn/$IMAGE_PATH:$ver "$IMAGE_PATH/$ver" $OTHER_ARG
+      if [ "$ver" = "$LAST_VERSION" ]; then
+        echo "docker tag icyleafcn/$IMAGE_PATH:$ver icyleafcn/$IMAGE_PATH"
+        docker tag icyleafcn/$IMAGE_PATH:$ver icyleafcn/$IMAGE_PATH
+      fi
     fi
   done
 

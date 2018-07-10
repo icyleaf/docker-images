@@ -1,4 +1,4 @@
-FROM alpine:edge
+FROM alpine:3.8
 LABEL maintainer="icyleaf <icyleaf.cn@gmail.com>"
 
 ENV ORIGINAL_REPO_URL="http://dl-cdn.alpinelinux.org" \
