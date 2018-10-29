@@ -18,7 +18,7 @@ if [ $IMAGE_PATH = "alpine" ]; then
   LAST_VERSION=${ALPINE_VERSIONS[1]}
 
   for ver in ${ALPINE_VERSIONS[@]}; do
-    if [ "$ver" != "README.md"]; then
+    if [ "$ver" != "README.md" ]; then
       echo
       echo "docker build $IMAGE_PATH:$ver -t icyleafcn/$IMAGE_PATH $OTHER_ARGS"
       echo
