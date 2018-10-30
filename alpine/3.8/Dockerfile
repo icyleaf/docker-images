@@ -2,7 +2,7 @@ FROM alpine:3.8
 LABEL maintainer="icyleaf <icyleaf.cn@gmail.com>"
 
 ENV ORIGINAL_REPO_URL="http://dl-cdn.alpinelinux.org" \
-    MIRROR_REPO_URL="http://mirrors.ustc.edu.cn" \
+    MIRROR_REPO_URL="https://mirrors.tuna.tsinghua.edu.cn" \
     TZ="Asia/Shanghai"
 
 RUN REPLACE_STRING=$(echo $MIRROR_REPO_URL | sed 's/\//\\\//g') && \

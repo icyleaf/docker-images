@@ -2,7 +2,7 @@
 
 基于 [alpine](https://hub.docker.com/_/alpine/) 官方镜像版本扩展，仅修改 apk 源和时区。
 
-APK 的源目前采用的是 [科大开源镜像站](https://mirrors.ustc.edu.cn) 作为国内地区的加速。
+APK 的源目前采用的是 [清华镜像站](https://mirrors.tuna.tsinghua.edu.cn) 作为国内地区的加速。
 
 ## 变量
 
