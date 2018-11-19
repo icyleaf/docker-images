@@ -20,19 +20,19 @@ if [ -z `ls ${IMAGE_PATH} | grep Dockerfile` ]; then
   for ver in ${IMAGE_VERSIONS[@]}; do
     if [ "$ver" != "README.md" ]; then
       echo
-      echo "docker build $IMAGE_PATH:$ver -t icyleafcn/$IMAGE_PATH $OTHER_ARGS"
+      echo "$ docker build --no-cache -t icyleafcn/$IMAGE_PATH $OTHER_ARGS $IMAGE_PATH:$ver"
       echo
 
       docker build -t icyleafcn/$IMAGE_PATH:$ver "$IMAGE_PATH/$ver" $OTHER_ARG
       if [ "$ver" = "$LATEST_VERSION" ]; then
-        echo "docker tag icyleafcn/$IMAGE_PATH:$ver icyleafcn/$IMAGE_PATH"
+        echo "$ docker tag icyleafcn/$IMAGE_PATH:$ver icyleafcn/$IMAGE_PATH"
         docker tag icyleafcn/$IMAGE_PATH:$ver icyleafcn/$IMAGE_PATH
       fi
     fi
   done
 else
   echo
-  echo "docker build $IMAGE_PATH -t icyleafcn/$IMAGE_PATH $OTHER_ARGS"
+  echo "$ docker build $IMAGE_PATH -t icyleafcn/$IMAGE_PATH $OTHER_ARGS"
   echo
 
   docker build -t icyleafcn/$IMAGE_PATH $IMAGE_PATH $OTHER_ARGS
