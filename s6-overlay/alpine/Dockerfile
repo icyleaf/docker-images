@@ -1,7 +1,7 @@
-FROM icyleafcn/alpine:3.8
+FROM icyleafcn/alpine:3.10
 LABEL maintainer="icyleaf <icyleaf.cn@gmail.com>"
 
-ENV S6_OVERLAY_VERSION="1.21.7.0"
+ENV S6_OVERLAY_VERSION="1.22.1.0"
 
 COPY root /
 
