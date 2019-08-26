@@ -1,0 +1,3 @@
+#!/usr/bin/execlineb -P
+
+exec /usr/local/bin/caddy -quic -conf /etc/conf/caddy/Caddyfile

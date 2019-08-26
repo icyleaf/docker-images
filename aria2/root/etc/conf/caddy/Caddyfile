@@ -1,0 +1,8 @@
+0.0.0.0:6080 {
+  root /app
+  gzip
+  timeouts 0
+  log stdout
+  errors stdout
+  basicauth / user pass
+}

@@ -1,0 +1,3 @@
+#!/usr/bin/execlineb -P
+
+exec /usr/bin/aria2c --conf-path="/etc/conf/aria2/aria2.conf" --enable-rpc --rpc-listen-all

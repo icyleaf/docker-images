@@ -1,0 +1,9 @@
+#!/usr/bin/with-contenv sh
+
+if [[ -z "${AUTH_USER}" ]] && [[ -z "${AUTH_PASS}" ]]; then
+  echo "Disabled Basic Auth"
+  sed -i "s/\(basicauth\)/# \1/" /etc/conf/caddy/Caddyfile
+else
+  echo "Enabled Basic Auth"
+  sed -i "s/\(basicauth \/\) \(user\) \(pass\)/\1 ${AUTH_USER} ${AUTH_PASS}/" /etc/conf/caddy/Caddyfile
+fi

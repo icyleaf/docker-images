@@ -1,0 +1,16 @@
+#!/usr/bin/with-contenv sh
+
+if [ ! -f "/etc/conf/aria2/aria2.session" ]; then
+  touch /etc/conf/aria2/aria2.session
+fi
+
+if ! [[ -z "${ARIA2_RPC_SECRET}" ]]; then
+  echo "Enabled rpc secret"
+  sed -i "s/^#\(rpc-secret=\)\(.*\)$/\1${ARIA2_RPC_SECRET}/" /etc/conf/aria2/aria2.conf
+fi
+
+BT_TRACKERS_URL="https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best_ip.txt"
+echo 'Downloading BT trackers'
+BT_TRACKERS=`curl $BT_TRACKERS_URL | tr -s '\n' ';'`
+sed -i '/bt-tracker.*/'d /etc/conf/aria2/aria2.conf
+echo "bt-tracker=${BT_TRACKERS}" >> /etc/conf/aria2/aria2.conf
