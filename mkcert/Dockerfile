@@ -16,6 +16,8 @@ LABEL caddy_version="1.4.1"
 
 COPY --from=builder /go/bin/mkcert /usr/bin/mkcert
 
+RUN apk --no-cache add openssl
+
 WORKDIR /root/.local/share/mkcert
 
 VOLUME [ "/root/.local/share/mkcert" ]

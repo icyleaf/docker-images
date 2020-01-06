@@ -1,6 +1,7 @@
 # mkcert
 
-基于 [icyleafcn/alpine](alpine/README.md):latest 镜像配置的 mkcert 一个由 Go 语言编写的自签名证书生成工具。
+基于 [icyleafcn/alpine](alpine/README.md):latest 镜像配置的 mkcert 一个由 Go 语言编写的自签名证书生成工具，
+同时还内置了 openssl，可让用户自行选择使用哪种方式。
 
 ## 快速使用
 
