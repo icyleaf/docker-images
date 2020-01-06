@@ -9,8 +9,4 @@ if ! [[ -z "${ARIA2_RPC_SECRET}" ]]; then
   sed -i "s/^#\(rpc-secret=\)\(.*\)$/\1${ARIA2_RPC_SECRET}/" /etc/conf/aria2/aria2.conf
 fi
 
-BT_TRACKERS_URL="https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best_ip.txt"
-echo 'Downloading BT trackers'
-BT_TRACKERS=`curl $BT_TRACKERS_URL | tr -s '\n' ';'`
-sed -i '/bt-tracker.*/'d /etc/conf/aria2/aria2.conf
-echo "bt-tracker=${BT_TRACKERS}" >> /etc/conf/aria2/aria2.conf
+/etc/conf/aria2/update_trackers.sh

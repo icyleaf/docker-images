@@ -1,0 +1,2 @@
+# 每天凌晨更新
+0 0 * * * bash -c '/etc/conf/aria2/update_trackers.sh >> /var/log/update_trackers.log 2>&1'
